@@ -1,0 +1,34 @@
+version: 2
+
+sources:
+  - name: erp 
+    description: banco replica do erp da northwind 
+    schema: adventureworks
+    tables:
+      - name: public_product
+        description: uma linha por produto
+        columns:
+          - name: productid
+            description: chave primária da tabela de produtos
+            tests: 
+              - unique
+              - not_null      
+
+      - name: public_customer
+        description: um cliente por linha
+
+      - name: public_customeraddress
+        description: um endereco de cliente por linha  
+
+      - name: public_address
+        description: um endereco por linha          
+        
+      - name: sales_creditcard
+        description: um cartao de credito por linha  
+
+      - name: public_salesorderdetail
+        description: um cartao de credito por linha
+
+      - name: public_salesorderheader
+        description: um cartao de credito por linha                 
+
