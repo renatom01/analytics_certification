@@ -39,4 +39,7 @@ models:
 
     marts:
       comercial:
-        +materialized: table   
+        +materialized: table 
+
+    intermediates: 
+      +materialized: view      

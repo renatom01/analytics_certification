@@ -12,23 +12,151 @@ sources:
             description: chave primária da tabela de produtos
             tests: 
               - unique
-              - not_null      
+              - not_null
+          - name: productcategoryid
+            description: chave primária da caterogia do produto como int
+            tests:
+              - unique
+              - not_null  
+          - name: productmodelid 
+            description: chave primária do modelo do produto como int
+            tests:
+              - unique
+              - not_null  
+          - name: sellenddate 
+            description: data de finalizacao de venda de produto como timestamp   
+          - name: productnumber 
+            description: numero do produto como string contem letras e numeros
+            tests:
+              - unique
+              - not_null  								
+          - name: standardcost 
+            description: custo padrao do produto				
+          - name: listprice		
+            description: preco listado 	
+          - name: sellstartdate
+            description: data de inicio da venda	          
 
       - name: public_customer
-        description: um cliente por linha
+        description: um cliente por linha com 
+        columns: 
+          - name: customerid 
+            description: chave primária do cliente como int
+            test: 
+              - unique 
+              - not_null   			
+          - name: lastname
+            description: ultimo nome do cliente como string 
+          - name: firstname
+            description: primeiro nome do cliente como string 				
+          - name: middlename 
+            description: nome do meio do cliente 							
+          - name: companyname 
+            description: nome da empresa 
 
       - name: public_customeraddress
-        description: um endereco de cliente por linha  
+        description: um endereco de cliente por linha
+        columns:
+          - name: customerid 
+            description: chave primaria do cliente como int
+            tests: 
+              - unique 
+              - not_null
+          - name: addressid  
+            description: chave primária do endereco como int
+             - unique 
+             - not_null        	
+          - name: addresstype
+            description: tipo do endereco como string
 
       - name: public_address
-        description: um endereco por linha          
+        description: um endereco por linha 
+        columns: 
+            - name: addressid     
+              description: chave primaria do endereco como int
+              tests: 
+                - unique 
+                - not_null
+            - name: city	
+              description: nome da cidade como string
+            - name: postalcode 
+              description: codigo postal como string
+            - name: addressline1	
+              description: endereco da rua como string		
+            - name: countryregion 
+              description: regiao do pais como string				
+            - name: stateprovince 
+              description: estado do pais como string          
         
       - name: sales_creditcard
-        description: um cartao de credito por linha  
+        description: um cartao de credito por linha
+        columns:
+            - name: creditcardid
+              description: chave primaria do cartao de credito
+              tests: 
+                - unique 
+                - not_null 
+            - name: cardtype   
+              description: tipo de cartao 
 
       - name: public_salesorderdetail
         description: um cartao de credito por linha
+        columns: 
+            - name: salesorderid       
+              description: chave primaria de ordem de compra como int
+              tests: 
+                - unique 
+                - not_null 
+            - name: salesorderdetailid 
+              description: chave primaria de detalhe de compras
+              tests: 
+                - unique 
+                - not_null 
+            - name: productid 
+              description: chave primaria do produto
+              tests: 
+                - unique 
+                - not_null 
+            - name: orderqty 					
+              description: quaantidade por ordem					
+            - name: unitprice 				
+              description: preco unitario			
+            - name: unitpricediscount 
+              description: preco unitario descontado
 
       - name: public_salesorderheader
-        description: um cartao de credito por linha                 
+        description: um cartao de credito por linha
+        colmuns: 
+            - name: salesorderid       
+              description: chave primaria da ordem de pedido
+            - name: customerid 
+              description: chave primaria de id do cliente 
+            - name: billtoaddressid	
+              description: chave primaria do endereco de cobranca
+            - name: shiptoaddressid 	
+              description: chave primaria do endereco de envio		
+            - name: purchaseordernumber
+              description: numero do pedido 														
+            - name: taxamt 			
+              description: taxas
+            - name: shiptoaddressid		
+              description: chave primaria do endereco de envio				
+            - name: shipmethod 			
+              description: metodo de envio
+            - name: status 			
+              description: status do pedidp
+            - name: orderdate 				
+              description: data do pedido 			
+            - name: subtotal 			
+              description: total da compra ou ordem
+            - name: revisionnumber		
+              description: numero de revisao	
+            - name: freight 			
+              description: frete
+            - name: duedate 			
+              description: prazo de entrega
+            - name: totaldue 					
+              description: total cobrado		
+            - name: shipdate           
+              description:  data de envio      
 
